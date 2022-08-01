@@ -1,31 +1,34 @@
 const puppeteer = require('puppeteer');
 const fs = require("fs");
 
-(
-    async function () {
-        try {
+// const source = fs.readFile('./views/index.html')
+// console.log(source);
 
-            const browser = await puppeteer.launch();
+async function createPdf() {
+    try {
 
-            const page = await browser.newPage();
+        const browser = await puppeteer.launch();
 
-            await page.setContent('<h1>Hello world</h1>')
+        const page = await browser.newPage();
 
-            // create a pdf document.
+        await page.setContent("<h1>hello node js</h1>")
 
-            await page.pdf({
-                path: './output.pdf',
-                format: 'A4',
-                printBackground: true
-            });
+        // create a pdf document.
 
-            console.log('done creating pdf');
+        await page.pdf({
+            path: './views/pdf/output.pdf',
+            format: 'A4',
+            printBackground: true
+        });
 
-            await browser.close();
-            process.exit();
-        }
-        catch (error) {
-            console.log(error);
-        }
+        console.log('done creating pdf');
+
+        await browser.close();
+        process.exit();
     }
-)();
+    catch (error) {
+        console.log(error);
+    }
+};
+
+createPdf();
