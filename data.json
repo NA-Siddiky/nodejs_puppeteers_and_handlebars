@@ -1,0 +1,40 @@
+{
+    "title": "PDF document in Puppeteer",
+    "users": [
+        {
+            "name": "Test 1",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 2",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 3",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 4",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 5",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 6",
+            "age": 100,
+            "country": "Bangladesh"
+        },
+        {
+            "name": "Test 7",
+            "age": 100,
+            "country": "Bangladesh"
+        }
+    ]
+}

@@ -1,19 +1,32 @@
 const puppeteer = require('puppeteer');
-const fs = require("fs");
+const fs = require("fs-extra");
+const hbs = require('handlebars');
+const path = require('path');
 
-// const source = fs.readFile('./views/index.html')
-// console.log(source);
+const data = require('./data.json');
+
+//compile the hbs template to pdf document
+const compile = async function (templateName, data) {
+    const filePath = path.join(process.cwd(), 'templates', `${templateName}.hbs`)
+    // console.log(filePath);
+
+    //get the html
+    const html = await fs.readFile(filePath, 'utf8');
+    // console.log(html);
+
+    return hbs.compile(html)(data);
+};
+
 
 async function createPdf() {
     try {
+        // console.log(data)
 
         const browser = await puppeteer.launch();
-
         const page = await browser.newPage();
-
-        await page.setContent("<h1>hello node js</h1>")
-
-        // create a pdf document.
+        const content = await compile('index', data);
+        // console.log(content)
+        await page.setContent(content);
 
         await page.pdf({
             path: './views/pdf/output.pdf',
