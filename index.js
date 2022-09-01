@@ -24,12 +24,12 @@ async function createPdf() {
 
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-        const content = await compile('index', data);
+        const content = await compile('ph', data);
         // console.log(content)
         await page.setContent(content);
 
         await page.pdf({
-            path: './views/pdf/output.pdf',
+            path: './views/pdf/ph.pdf',
             format: 'A4',
             printBackground: true
         });
