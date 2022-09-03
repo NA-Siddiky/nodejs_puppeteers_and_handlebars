@@ -5,33 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{title}}</title>
     <style>
-      /* * Prefixed by https://autoprefixer.github.io * PostCSS: v8.3.6, *
-      Autoprefixer: v10.3.1 * Browsers: last 10 version */ @import
-      url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-      * { font-family: "Poppins", sans-serif; font-style: normal; margin: 0;
-      padding: 0; } .flex { display: -webkit-box; display: -ms-flexbox; display:
-      flex; } .max-w-xl { max-width: 700px; padding: 20px; } .justify-center {
-      -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center;
-      } .justify-between { -webkit-box-pack: justify; -ms-flex-pack: justify;
-      justify-content: space-between; } .items-center { -webkit-box-align:
-      center; -ms-flex-align: center; align-items: center; } .mx-auto { margin:
-      20px auto; } .mx-footer {margin: 0 25px;} table { margin: 20px 0; width:
-      100%; border-collapse: collapse; border-spacing: 0; border: 1px solid
-      #d6d6d6; border-radius: 8px; } table thead th { background: #faf7ff;
-      padding: 12px 0; } table tbody td { padding: 11.5px 11.5px; border: 1px
-      solid #d6d6d6;} .black { color: #0d0f1d; } .primary-100 { color: #6808ff;
-      } .gray-5 { color: #555555; } .my-5 { margin: 38px 0; } .my-4 { margin:
-      15px 0; } .my-1 { margin: 4px 0; } .my-2 { margin: 10px 0; } .font-sm {
-      font-size: 14px; } .font-lg {font-size: 20px; } .font { font-size: 16px; }
-      .font-footer { font-size: 11px; } .text-align td{text-align: center;}
-      .text-end{text-align: right;}
+      body { margin:0; padding:0; max-width: 90%; padding: 20px; } .text_color{
+      color: blue; }
     </style>
-    <!-- CSS only -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
 
   </head>
-  <body class="max-w-xl mx-auto black">
-    <div class="flex justify-between my-5">
-      <div class="text-end">
+  <body class="container-fluid">
+    <div class="d-flex flex-column justify-content-evenly text-center my-5">
+      <div class="d-flex justify-content-center mb-4">
         <img
           style="
               margin-top: 0px;
@@ -43,102 +31,102 @@
         />
         <h1 style="font-size: 24px" class="my-1">
           Programming
-          <span style="font-weight: 400">hero</span>
+          <span style="font-weight: 400">Hero</span>
         </h1>
       </div>
+      <div class="">
+        <h1><u>Employee Salary Certificate</u></h1>
+      </div>
     </div>
-    <div class="my-0 container">
-      <table>
+    <div class="mb-3">
+      <p class="font-sm lh-base">
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Exercitation
+        veniam consequat sunt nostrud amet sint. Velit officia consequat duis
+        enim velit mollit. Exercitation.
+      </p>
+    </div>
+    <div class="mb-3">
+      <p class="fw-light my-0">Date</p>
+      <h6>04 April, 2022</h6>
+    </div>
+    <div class="mb-4">
+      <table class="table table-bordered">
         <thead>
-          <tr>
-            <th>Description</th>
-            <th>Amount</th>
+          <tr class="table-danger">
+            <th scope="col">Salary Details</th>
+            <th scope="col">Amount</th>
           </tr>
         </thead>
         <tbody>
-          {{!-- {{#each salary as |salary|}}
-            <tr>
-              <td>{{salary.description}}</td>
-              <td>{{salary.amount}}</td>
-            </tr>
-          {{/each}} --}}
           <tr>
             <td>Net Salary</td>
-            <td>{{netSalary}}</td>
+            <td>37,000</td>
           </tr>
           <tr>
-            {{#if othersBenefit}}
-              <td>Others Benefit</td>
-              <td>{{othersBenefit}}</td>
-            {{/if}}
-          </tr>
-          <tr>
-            {{#if extraWorkPayment}}
-              <td>Extra Work</td>
-              <td>{{extraWorkPayment}}</td>
-            {{/if}}
-          </tr>
-          <tr>
-            {{#if installmentAmount}}
-              <td>Installment Amount</td>
-              <td>{{installmentAmount}}</td>
-            {{/if}}
+            <td>Installment Amount</td>
+            <td>2,000</td>
           </tr>
           <tr>
             <td>Deductions</td>
-            <td>{{otherDeduction}}</td>
+            <td>1,000</td>
           </tr>
-          <tr class="black" style="font-weight: bolder">
-            <td>Total Paid</td>
-            <td class="primary-100">{{totalPaid}} Tk</td>
+          <tr>
+            <td><h6>Total Paid</h6></td>
+            <td><h6 class="text_color">34,000 Tk</h6></td>
           </tr>
         </tbody>
       </table>
-      <table class="my-0 w-100">
-        {{#if loanAmount}}
-          <h3>Loan</h3>
-          <thead>
-            <tr class="font-sm">
-              <th>Loan <br /> Amount</th>
-              <th>Installment <br /> Amount</th>
-              <th>Rem. Ins. <br /> Number</th>
-              <th>Loan <br /> Type</th>
-              <th>Rem. Ins. <br /> Amount</th>
-            </tr>
-          </thead>
-          <tbody class="font-sm">
-            <tr class="text-align">
-              <td>{{loanAmount}} Tk</td>
-              <td>{{installmentAmount}} Tk</td>
-              <td>{{remainingInstallmentNumber}} Times</td>
-              <td>{{loanType}}</td>
-              <td>{{remainingInstallmentAmount}} Tk</td>
-            </tr>
-          </tbody>
-        {{/if}}
+    </div>
+
+    <div class="my-4">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table-danger">
+            <th scope="col">Deduction Details</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>States Income tax</td>
+            <td>37,000</td>
+          </tr>
+          <tr>
+            <td>Advance Salary</td>
+            <td>2,000</td>
+          </tr>
+          <tr>
+            <td><h6>Total Paid</h6></td>
+            <td><h6 class="text_color">34,000 Tk</h6></td>
+          </tr>
+        </tbody>
       </table>
     </div>
-    <div class="my-4 black">
-      <h2 class="gray-5 font-sm">Terms & Conditions</h2>
-      <p class="font-sm gray-5 my-0">
+
+    <div class="">
+      <p class="">
         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
         sint. Velit officia consequat duis enim velit mollit. Exercitation
-        veniam consequat sunt nostrud amet.
+        veniam consequat sunt nostrud amet sint.
       </p>
     </div>
-    <div class="my-4">
-      <h2 class="font black">Thanks for the hardwork</h2>
-      <p class="font-sm gray-5 my-1">Date of Payment: {{paymentDate}}</p>
-      <p class="font-sm gray-5 my-1">Salary type: {{salaryType}}</p>
-      <p class="font-sm gray-5 my-1">TrxID: {{transactionId}}</p>
+
+    <div class="my-5">
+      <p class="my-0">------------------</p>
+      <h6 class="my-0">Abu Sufian</h6>
+      <p class="my-0">Sr. HR Executive</p>
+      <p class="my-0">Programming Hero</p>
     </div>
-    <footer class="flex justify-between font-footer gray-5">
-      <div class="flex">
-        <div class="primary-100">www.programming-hero.com</div>
-        <div class="mx-footer">web@programming-hero.com</div>
-        <div>646-888-6885</div>
+    <footer class="text-center fixed-bottom my-5">
+      <div class="d-flex flex-column">
+        <div class="my-0">
+          <p>Site: www.programming-hero.com | Phone: +880 1308-543768</p>
+        </div>
+        <div class="">
+          <p>Address: 152/1 Mohakhali WirelessGate, Dhaka 1212</p>
+        </div>
       </div>
-      <div>Authorize Signature</div>
     </footer>
   </body>
 </html>
